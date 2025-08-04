@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="has-background-light">
+    <!-- HEAD -->
+    <head>
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- LINK & SCRIPT TAGS -->
+        {% include "layout/_link-scripts.html" %}
+        <title>
+            {% if title is defined %}
+                Web App - {{ title }}
+            {% else %}
+                Web App
+            {% endif %}
+        </title>
+    </head>
+    <!-- BODY -->
+    <body>
+        <!-- MAIN CONTAINER -->
+        <main class="container mx-6 my-6">
+            <div class="columns">
+                <!-- FORM -->
+                <div class="column is-two-thirds">
+                    <div class="box is-radiusless">
+                        {% block content %}
+                        {% endblock content %}
+                    </div>
+                </div>
+                <!-- OPTIONS -->
+                <div class="column is-one-third">
+                    {% include 'layout/_options.html' %}
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

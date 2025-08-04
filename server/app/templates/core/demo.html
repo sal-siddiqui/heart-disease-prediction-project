@@ -1,0 +1,267 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+    <!-- TITLE -->
+    <p class="title">{{ title }}</p>
+    <!-- PAGE DESCRIPTION -->
+    <p>
+        This page provides a clean interface to demonstrate our model in action. To get started, manually enter the patient's health metrics in the corresponding fields and predict the result. For more practical scenarios, you can upload a <a href='{{ url_for("core_web.csv") }}'>CSV file</a> or refer to the <a href='{{ url_for("core_web.rest_apis") }}'>API documentation</a>.
+    </p>
+    <hr />
+    <!-- FORM -->
+    <form action="" method="post">
+        <!-- AGE -->
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label has-text-centered">Age</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-radiusless" type="text" placeholder="(in years)" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GENDER -->
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label has-text-centered">Gender</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <div class="select">
+                            <select class="is-radiusless">
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CP -->
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label has-text-centered">
+                    Type of Chest Pain (cp)
+                </label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <div class="select">
+                            <select class="is-radiusless">
+                                <option>Typical Angina</option>
+                                <option>Atypical Angina</option>
+                                <option>Non-anginal Pain</option>
+                                <option>Asymptomatic</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRESTBPS -->
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label has-text-centered">Resting Blood Pressure</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-radiusless" type="text" placeholder="(in mmHg)" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHOL -->
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label has-text-centered">
+                    Serum Cholesterol Level
+                </label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-radiusless" type="text" placeholder="(in mg/dL)" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FBS -->
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label has-text-centered">Fasting Blood Sugar</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <div class="select">
+                            <select class="is-radiusless">
+                                <option>
+                                    <= 120 mg/dL
+                                </option>
+                                <option>&gt; 120 mg/dL</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESTECG -->
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label has-text-centered">
+                    Resting Electrocard. Results
+                </label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <div class="select">
+                            <select class="is-radiusless">
+                                <option>Normal</option>
+                                <option>ST-T Wave Abnormality</option>
+                                <option>Left ventricular hypertrophy (Estes)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- THALACH -->
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label has-text-centered">
+                    Maximum Heart Rate Achieved
+                </label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-radiusless" type="text" placeholder="(in bps)" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXANG -->
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label has-text-centered">
+                    Exercise-induced Angina
+                </label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <div class="select">
+                            <select class="is-radiusless">
+                                <option>Yes</option>
+                                <option>No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OLDPEAK -->
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label has-text-centered">
+                    ST Depression induced by exercise relative to rest
+                </label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-radiusless" type="text" placeholder="(in mm)" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLOPE -->
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label has-text-centered">
+                    Slope of the peak exercise ST segment
+                </label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <div class="select">
+                            <select class="is-radiusless">
+                                <option>Upsloping</option>
+                                <option>Flat</option>
+                                <option>Downsloping</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CA -->
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">
+                    Number of Colored Major Vessels (fluoroscopy)
+                </label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <div class="select">
+                            <select class="is-radiusless">
+                                <option>0</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- THAL -->
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Type of Thalassemia</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <div class="select">
+                            <select class="is-radiusless">
+                                <option>Normal</option>
+                                <option>Reversible Effect</option>
+                                <option>Fixed Defect</option>
+                                <option>Not Described</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+        <button class="button is-radiusless is-fullwidth mt-5">
+            Make Prediction
+        </button>
+    </form>
+
+{% endblock content %}

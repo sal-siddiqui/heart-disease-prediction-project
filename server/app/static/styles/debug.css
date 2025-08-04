@@ -1,0 +1,9 @@
+/* Debug CSS - Add this file during development to visualize layout structure */
+
+
+/* Containers */
+div, section, article, main, aside, header, footer, nav {
+    outline: 2px solid rgba(0, 0, 255, 0.2);
+    background-color: rgba(0, 0, 255, 0.1);
+}
+

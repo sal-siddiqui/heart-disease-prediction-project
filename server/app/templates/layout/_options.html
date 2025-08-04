@@ -1,0 +1,30 @@
+{% set options = [
+    {
+        "name": "Demo",
+        "url": "core_web.demo",
+        "description": "Allows the user to manually input patient data and view the corresponding prediction."
+    },
+    {
+        "name": "CSV File",
+        "url": "core_web.csv",
+        "description": "Allows the user to upload a CSV file and view predictions for a batch of patients."
+    },
+    {
+        "name": "REST API",
+        "url": "core_web.rest_apis",
+        "description": "Specifies the various REST APIs implemented for interacting with the server."
+    }
+] %}
+
+<div class="list has-hoverable-list-items">
+    {% for option in options %}
+        <a href="{{ url_for(option.url) }}" class="list-item">
+            <div class="list-item-content">
+                <div class="list-item-title">{{ option.name }}</div>
+                <div class="list-item-description mt-1">
+                    {{ option.description }}
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</div>
